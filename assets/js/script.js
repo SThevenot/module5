@@ -1,5 +1,5 @@
 /** @format */
-
+//global variables
 var table = document.querySelector("#table");
 var row9 = document.querySelector("#row9");
 var row10 = document.querySelector("#row10");
@@ -19,10 +19,27 @@ var td2 = document.querySelector("#event2");
 var td3 = document.querySelector("#event3");
 var td4 = document.querySelector("#event4");
 var td5 = document.querySelector("#event5");
+var btn = document.querySelectorAll(".btn");
 
+//event listener for buttons!
+
+btn.forEach((element) => {
+    element.addEventListener("click", (e) => {
+        var td9 = document.querySelector("#event9").value;
+      window.localStorage.setItem("9", JSON.stringify(td9));
+    var retrievetd9 = localStorage.getItem("9");
+    console.log(retrievetd9);
+    });
+  });
+
+  //saves the data
+  window.onload = () => {
+    td9.value = JSON.parse(localStorage.getItem("9"));
+  }
+
+  //real time clock
 var today = moment();
 $("#currentDay").text(today.format("MMM Do, YYYY, h:mm a"));
-
 var stringHour = today.format("H");
 floor = Math.floor;
 hour = floor(stringHour);
@@ -30,7 +47,7 @@ console.log(typeof hour);
 console.log(hour);
 
 
-
+//redefines the value of the hours into military time to make it easier for the color system
 row9 = 9;
 row10 = 10;
 row11 = 11;
