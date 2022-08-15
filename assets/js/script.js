@@ -29,6 +29,7 @@ btn.forEach((element) => {
       window.localStorage.setItem("9", JSON.stringify(td9));
     var retrievetd9 = localStorage.getItem("9");
     console.log(retrievetd9);
+    alert("Event has been saved!");
     });
   });
 
